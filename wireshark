@@ -1,0 +1,38 @@
+# Wireshark
+
+ Install package:
+ 
+ 1. yum install wireshark
+ 2. cat /etc/fedora-release
+ 
+ First, ensure the required packages are installed:
+ 
+ 3. rpm -qa | grep -i wireshark
+ 
+ If the Wireshark package is installed, check whether the TShark utility is installed and, if so, which version:
+ 
+ 4. tshark -v
+ 
+ Find network devices available to TShark
+
+ Before TShark can analyze packets, it needs to capture those packets. Network packets are processed via a network interface card (NIC) on servers, workstations,   or desktops or a WiFi card on laptops.
+ 
+ To identify what network devices are available to TShark:
+ 
+ 5. sudo tshark -D
+ 
+ Command to view all network interfaces on a system:
+ 
+ 6. ifconfig -a or ip addr show (use anyone)
+ 
+ For a specific interface command is:
+ 
+ 7. ifconfig <interface-name>
+ 
+ Start capturing some packets:
+ 
+ 8. sudo tshark -i <interface-name>
+ 
+ limit the number of packets captured and displayed on the screen using the -c:
+ 
+ 9. sudo tshark -i <interface-name> -c 100
